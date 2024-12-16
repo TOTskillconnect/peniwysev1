@@ -27,7 +27,7 @@ const BlogFilter = () => {
                 <div className='flex flex-col gap-2'>
                   <ul className='flex items-center gap-2'>
                   {blog.tags.map((tag) => (
-                    <li className='text-xs bg-[#F5F7F9] border-2 border-lemon rounded-[40px] px-4 py-1 text-lightGrey'>{tag}</li>
+                    <li key={tag} className='text-xs bg-[#F5F7F9] border-2 border-lemon rounded-[40px] px-4 py-1 text-lightGrey'>{tag}</li>
                   ))}
                 </ul>
               <div className='flex items-center gap-2 text-sm'>
