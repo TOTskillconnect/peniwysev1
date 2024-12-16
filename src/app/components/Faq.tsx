@@ -13,7 +13,7 @@ const Faq = () => {
   }
 
   return (
-    <section className='pt-12 pb-7 px-5 bg-primary'>
+    <section id='faqs' className='pt-12 pb-7 px-5 bg-primary'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-center md:w-[80%] mx-auto text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 text-subdued'>Frequently Asked Questions</h2>
         <div className='md:w-[80%] mx-auto flex flex-col gap-5'>

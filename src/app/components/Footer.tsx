@@ -15,13 +15,13 @@ const Footer = ({darkMode}: {darkMode?: boolean}) => {
       <div className={`${darkMode ? 'text-lemon' : 'text-subdued'} flex flex-col lg:flex-row items-center gap-6`}>
         <Link href="/">Home</Link>
         <span className="text-pink hidden lg:block">|</span>
-        <Link href="/">Features</Link>
+        <Link href="/#features">Features</Link>
         <span className="text-pink hidden lg:block">|</span>
-        <Link href="/">How it Works</Link>
+        <Link href="/#how-it-works">How it Works</Link>
         <span className="text-pink hidden lg:block">|</span>
-        <Link href="/">Blogs</Link>
+        <Link href="/blogs">Blogs</Link>
         <span className="text-pink hidden lg:block">|</span>
-        <Link href="/">FAQs</Link>
+        <Link href="/#faqs">FAQs</Link>
       </div>
 
       <div className={`${darkMode ? 'text-lemon' : 'text-subdued'} flex gap-3`}>

@@ -39,7 +39,7 @@ const Features = () => {
   }
 
   return (
-    <section className='pt-12 px-5'>
+    <section id='features' className='pt-12 px-5'>
       <div className='max-w-7xl mx-auto text-center mb-10 md:mb-20'>
         <h2 className='md:w-[80%] mx-auto text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-subdued'>Smarter Tools for Better Living</h2>
         <p className='text-subdued w-[80%] md:w-1/2 mx-auto'>

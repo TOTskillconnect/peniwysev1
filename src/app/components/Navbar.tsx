@@ -18,13 +18,13 @@ const Navbar = ({darkMode}: {darkMode?: boolean}) => {
       <div className={`${darkMode ? 'text-lemon' : 'text-subdued'} hidden lg:flex items-center gap-6`}>
         <Link href="/">Home</Link>
         <span className="text-pink">|</span>
-        <Link href="/">Features</Link>
+        <Link href="/#features">Features</Link>
         <span className="text-pink">|</span>
-        <Link href="/">How it Works</Link>
+        <Link href="/#how-it-works">How it Works</Link>
         <span className="text-pink">|</span>
-        <Link href="/">Blogs</Link>
+        <Link href="/blogs">Blogs</Link>
         <span className="text-pink">|</span>
-        <Link href="/">FAQs</Link>
+        <Link href="/#faqs">FAQs</Link>
       </div>
 
       {/* Mobile Menu Button */}
