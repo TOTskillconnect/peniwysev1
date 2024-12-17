@@ -15,6 +15,7 @@ const MoneyStress = () => {
             width={475}
             height={475}
             className="object-contain w-[90%] h-[90%]"
+            unoptimized
           />
         </div>
       </div>

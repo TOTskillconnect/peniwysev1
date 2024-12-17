@@ -1,18 +1,20 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { ButtonHTMLAttributes } from 'react'
 
-type Props = {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string
-  icon?: React.ReactNode
   className?: string
   arrowType?: 'dark' | 'light'
 }
 
-const Button = (props: Props) => {
+const Button = ({ text, className, arrowType, ...rest }: Props) => {
   return (
-    <button className={`${props.className} px-8 h-12 rounded-full flex items-center gap-2 font-medium hover:transform hover:scale-105 hover:shadow-lg cursor-pointer transition-transform duration-300 ease-in-out`}>
-      {props.text}
-      {props.arrowType && (props.arrowType === 'dark' ? <Image src={'/dark-arrow.svg'} alt='' width={18} height={18} /> : <Image src={'/light-arrow.svg'} alt='' width={18} height={18} />)}
+    <button 
+      className={`${className} px-8 h-12 rounded-full flex items-center gap-2 font-medium hover:transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out ${rest.disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+      {...rest}
+    >
+      {text}
+      {arrowType && (arrowType === 'dark' ? <Image src={'/dark-arrow.svg'} alt='' width={18} height={18} /> : <Image src={'/light-arrow.svg'} alt='' width={18} height={18} />)}
     </button>
   )
 }

@@ -23,6 +23,8 @@ export default {
       },
       fontFamily: {
         'abeezee': ['ABeeZee', 'sans-serif'],
+        'sans': ['Work Sans', 'Arial', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
       keyframes: {
         fadeInOut1: {

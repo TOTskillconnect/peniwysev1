@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Image from 'next/image'
 import BlogFilter from '../components/BlogFilter'
+import Footer from '../components/Footer'
 
 const MainBlog = () => {
   return (
@@ -22,6 +23,7 @@ const MainBlog = () => {
         </div>
 
         <BlogFilter />
+        <Footer darkMode />
     </section>
   )
 }
