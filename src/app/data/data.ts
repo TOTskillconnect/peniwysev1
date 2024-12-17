@@ -146,12 +146,12 @@ export const blogs = [
   },
   {
     image: '/blog-2.png',
-    title: 'NBA Bets 9/25/20',
+    title: 'NBA Bets 9/23/20',
     content: `Chemistry has always been the Clippers' issue. For starters, all their players have had some kind of injury this year, preventing the team from getting into a good rhythm and used to playing together. This is why the Clippers have been struggling this season. The chemistry is not there, and it is not just because of the injuries. The Clippers have been playing without their best player, Kawhi Leonard, for most of the season. This has affected the team's chemistry, and it is not just because of the injuries. The Clippers have been playing without their best player, Kawhi Leonard, for most of the season. This has affected the team's chemistry, and it is not just because of the injuries.`,
     tags: ['Trending'],
     author: 'John Doe',
     date: '2024-05-01',
-    slug: 'nba-bets-9-25-20'
+    slug: 'nba-bets-9-23-20'
   },
   {
     image: '/blog-1.png',
@@ -164,12 +164,12 @@ export const blogs = [
   },
   {
     image: '/blog-1.png',
-    title: 'NBA Bets 9/25/20',
+    title: 'NBA Bets 9/20/20',
     content: `Chemistry has always been the Clippers' issue. For starters, all their players have had some kind of injury this year, preventing the team from getting into a good rhythm and used to playing together. This is why the Clippers have been struggling this season. The chemistry is not there, and it is not just because of the injuries. The Clippers have been playing without their best player, Kawhi Leonard, for most of the season. This has affected the team's chemistry, and it is not just because of the injuries. The Clippers have been playing without their best player, Kawhi Leonard, for most of the season. This has affected the team's chemistry, and it is not just because of the injuries.`,
     tags: ['Featured'],
     author: 'Doe Akin',
     date: '2023-08-01',
-    slug: 'nba-bets-9-25-20-3'
+    slug: 'nba-bets-9-20-20'
   },
   {
     image: '/blog-2.png',
