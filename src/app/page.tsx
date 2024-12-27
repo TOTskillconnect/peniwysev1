@@ -1,15 +1,15 @@
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import HowItWorks from "./components/HowItWorks";
-import WhatToAchieve from "./components/WhatToAchieve";
-import MoneyStress from "./components/MoneyStress";
-import YourMoney from "./components/YourMoney";
-import Footer from "./components/Footer";
-import Faq from "./components/Faq";
+import Hero from '@/components/landing/Hero';
+import Features from '@/components/landing/Features';
+import HowItWorks from '@/components/landing/HowItWorks';
+import WhatToAchieve from '@/components/landing/WhatToAchieve';
+import MoneyStress from '@/components/landing/MoneyStress';
+import YourMoney from '@/components/landing/YourMoney';
+import Footer from '@/components/shared/Footer';
+import Faq from '@/components/landing/Faq';
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
       <Features />
       <HowItWorks />
@@ -18,6 +18,6 @@ export default function Home() {
       <YourMoney />
       <Faq />
       <Footer />
-    </main>
+    </>
   );
 }

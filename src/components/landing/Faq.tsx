@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Cta from "./Cta";
-import { faqs } from "../data/data";
-import Image from "next/image";
+import React, { useState } from 'react';
+import Cta from '@/components/Cta';
+import { faqs } from '@/data/data';
+import Image from 'next/image';
 
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -26,21 +26,21 @@ const Faq = () => {
               onClick={() => toggleFaq(index)}
             >
               <div
-                className={`flex justify-between items-center ${openIndex === index ? "mb-3" : ""}`}
+                className={`flex justify-between items-center ${openIndex === index ? 'mb-3' : ''}`}
               >
                 <h3 className='text-lg md:text-xl font-bold text-subdued'>
                   {faq.question}
                 </h3>
                 {openIndex === index ? (
                   <Image
-                    src={"/faq-close.svg"}
+                    src={'/faq-close.svg'}
                     alt='toggle faq'
                     width={20}
                     height={22}
                   />
                 ) : (
                   <Image
-                    src={"/faq-open.svg"}
+                    src={'/faq-open.svg'}
                     alt='toggle faq'
                     width={20}
                     height={22}
@@ -48,7 +48,7 @@ const Faq = () => {
                 )}
               </div>
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-96" : "max-h-0"}`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96' : 'max-h-0'}`}
               >
                 <p className='text-subdued'>{faq.answer}</p>
               </div>

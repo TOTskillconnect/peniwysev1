@@ -1,16 +1,16 @@
-import Footer from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
-import Image from "next/image";
-import { blogs } from "@/app/data/data";
-import { redirect } from "next/navigation";
-import Resources from "@/app/components/Resources";
+import Footer from '@/components/shared/Footer';
+import Navbar from '@/components/shared/Navbar';
+import Image from 'next/image';
+import { blogs } from '@/data/data';
+import { redirect } from 'next/navigation';
+import Resources from '@/components/Resources';
 
 const BlogPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const blog = blogs.find((blog) => blog.slug === slug);
 
   if (!blog) {
-    redirect("/blogs");
+    redirect('/blogs');
   }
 
   return (
