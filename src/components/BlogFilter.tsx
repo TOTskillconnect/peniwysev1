@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client';
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 import Button from './shared/Button';
 import { Category, Post } from '../../sanity.types';
@@ -69,11 +69,6 @@ const BlogFilter = ({
   //     setLoading(false);
   //   }
   // }, []);
-
-  useEffect(() => {
-    setPosts(initialPosts);
-    setHasMore(true);
-  }, [activeFilter, initialPosts]);
 
   return (
     <section className='bg-primary'>
