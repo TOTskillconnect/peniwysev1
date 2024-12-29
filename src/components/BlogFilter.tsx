@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { Category, Post } from '../../sanity.types';
 import { urlFor } from '@/sanity/lib/image';
 import CustomPortableText from './shared/CustomPortableText';
+import Link from 'next/link';
 
 const BlogFilter = ({
   categories,
@@ -121,7 +122,7 @@ const BlogFilter = ({
               <div
                 key={post.title}
                 className='flex flex-col gap-5 cursor-pointer hover:scale-[1.01] transition-all duration-300'
-                onClick={() => handleBlogClick(post.slug?.current ?? '')}
+                // onClick={() => handleBlogClick(post.slug?.current ?? '')}
               >
                 <Image
                   src={urlFor(post?.mainImage || {})?.url() ?? ''}
@@ -131,7 +132,12 @@ const BlogFilter = ({
                   className='w-auto h-[300px] object-cover rounded-[10px]'
                 />
                 <h3 className='text-2xl text-darkGrey font-bold font-montserrat'>
-                  {post.title}
+                  <Link
+                    href={`/blogs/${post.slug?.current}`}
+                    className='inline px-1 hover:bg-lemon transition-all duration-300 hover:underline'
+                  >
+                    {post.title}
+                  </Link>
                 </h3>
                 <p className='text-lightGrey line-clamp-2'>
                   <CustomPortableText content={post.excerpt} />
