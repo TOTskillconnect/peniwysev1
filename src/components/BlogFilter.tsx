@@ -4,7 +4,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Button from './shared/Button';
-import { useRouter } from 'next/navigation';
 import { Category, Post } from '../../sanity.types';
 import { urlFor } from '@/sanity/lib/image';
 import CustomPortableText from './shared/CustomPortableText';
@@ -21,11 +20,6 @@ const BlogFilter = ({
   const [posts, setPosts] = useState(initialPosts);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const router = useRouter();
-
-  const handleBlogClick = (slug: string) => {
-    router.push(`/blogs/${slug}`);
-  };
 
   const handleLoadMore = useCallback(async () => {
     if (loading || !hasMore) return;
