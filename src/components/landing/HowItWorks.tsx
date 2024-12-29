@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { howItWorks } from '@/data/data';
+import { SiteContent } from '../../../sanity.types';
 
-const HowItWorks = () => {
+const HowItWorks = ({ data }: { data: SiteContent }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
 
@@ -24,14 +25,14 @@ const HowItWorks = () => {
     <section id='how-it-works' className='px-5 mx-auto max-w-7xl'>
       <div className='text-center mb-16'>
         <h2 className='text-3xl md:w-[80%] mx-auto md:text-4xl lg:text-5xl font-extrabold mb-3 text-subdued'>
-          Manage Your Money Seamlessly in One Place!
+          {data?.landingPage?.howItWorks?.title}
         </h2>
       </div>
 
       <div className='md:w-[80%] mx-auto relative h-[381px] rounded-t-[56px] before:absolute before:inset-0 before:p-[20px] before:rounded-t-[56px] before:bg-gradient-to-b before:from-violet-50 before:to-white'>
         <div className='absolute flex flex-col inset-[20px] bottom-0 bg-white rounded-t-[36px] pt-16'>
           <div className='flex justify-center gap-3 items-center mb-8'>
-            {howItWorks.map((item, index) => (
+            {data?.landingPage?.howItWorks?.steps?.map((item, index) => (
               <div
                 key={`howitworks-${index}`}
                 className={`border rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer
@@ -44,7 +45,7 @@ const HowItWorks = () => {
                   }, 500);
                 }}
               >
-                {item.id}
+                {index + 1}
               </div>
             ))}
           </div>
@@ -54,10 +55,13 @@ const HowItWorks = () => {
                 className={`transition-transform duration-500 ease-in-out text-center ${isSliding ? 'translate-y-full' : 'translate-y-0'}`}
               >
                 <h4 className='font-extrabold text-2xl text-subdued mb-2'>
-                  {howItWorks[activeIndex].title}
+                  {data?.landingPage?.howItWorks?.steps?.[activeIndex]?.title}
                 </h4>
                 <p className=' text-subdued px-4 w-[80%] mx-auto font-abeezee'>
-                  {howItWorks[activeIndex].description}
+                  {
+                    data?.landingPage?.howItWorks?.steps?.[activeIndex]
+                      ?.description
+                  }
                 </p>
               </div>
             </div>

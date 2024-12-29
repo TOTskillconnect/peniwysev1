@@ -1,15 +1,30 @@
 import React from 'react';
-import Navbar from '@/components/shared/Navbar';
 import Image from 'next/image';
 import BlogFilter from '@/components/BlogFilter';
-import Footer from '@/components/shared/Footer';
+import { sanityFetch } from '@/sanity/lib/live';
+import { groq } from 'next-sanity';
 
-const MainBlog = () => {
+const fetchBlogCategories = groq`*[_type == "category"][0...3]`;
+const fetchInitialPosts = groq`*[_type == "post"] | order(_createdAt desc) [0...2]{
+  ...,
+  "author": author->name,
+  categories[]->{
+    title,
+    _id
+  }
+}`;
+
+export default async function MainBlog() {
+  const { data: categories } = await sanityFetch({
+    query: fetchBlogCategories,
+  });
+
+  const { data: posts } = await sanityFetch({
+    query: fetchInitialPosts,
+  });
+
   return (
-    <section className='bg-primary'>
-      <header className='max-w-7xl mx-auto px-5 pt-8 pb-0 lg:pb-6'>
-        <Navbar darkMode />
-      </header>
+    <section>
       <div className='bg-darkPurple h-[400px] relative'>
         <Image
           src={'/blog-bg.png'}
@@ -28,10 +43,7 @@ const MainBlog = () => {
         />
       </div>
 
-      <BlogFilter />
-      <Footer darkMode />
+      <BlogFilter categories={categories} posts={posts} />
     </section>
   );
-};
-
-export default MainBlog;
+}

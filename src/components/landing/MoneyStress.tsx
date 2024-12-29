@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from '@/components/shared/Button';
 import Image from 'next/image';
+import { SiteContent } from '../../../sanity.types';
+import CustomPortableText from '../shared/CustomPortableText';
 
-const MoneyStress = () => {
+const MoneyStress = ({ data }: { data: SiteContent }) => {
   return (
     <section className='bg-primary text-darkPurple px-5 py-12 md:px-10'>
       <div className='max-w-7xl mx-auto'>
@@ -20,19 +22,13 @@ const MoneyStress = () => {
             </div>
           </div>
           <div className='basis-1/2 text-center md:text-left'>
-            <h1 className='text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3'>
-              Money Stress Is Real —<br />
-              You Deserve Better
-            </h1>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3'>
+              {data?.landingPage?.moneyStress?.title}
+            </h2>
             <p className='font-abeezee text-lg md:text-xl text-subdued'>
-              Over 35% of Canadians struggle to cover everyday expenses, and 26%
-              can’t handle an unexpected $500 cost. Managing finances shouldn’t
-              feel impossible.
-              <br />
-              <br />
-              Peniwyse puts you in control—track spending, manage payments, and
-              plan ahead with ease. Make every penny count, reduce stress, and
-              focus on what matters most.
+              <CustomPortableText
+                content={data?.landingPage?.moneyStress?.description}
+              />
             </p>
 
             <div className='flex items-center justify-center md:justify-start flex-wrap gap-[18px] mt-10'>

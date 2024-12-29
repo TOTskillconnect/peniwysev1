@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { features } from '@/data/data';
 import Image from 'next/image';
+import { SiteContent } from '../../../sanity.types';
 
-const Features = () => {
+const Features = ({ data }: { data: SiteContent }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -44,11 +44,10 @@ const Features = () => {
     <section id='features' className='pt-12 px-5'>
       <div className='max-w-7xl mx-auto text-center mb-10 md:mb-20'>
         <h2 className='md:w-[80%] mx-auto text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-subdued'>
-          Smarter Tools for Better Living
+          {data?.landingPage?.smarterTools?.title}
         </h2>
         <p className='text-subdued w-[80%] md:w-1/2 mx-auto'>
-          Take control of your finances with features designed to simplify,
-          track, and optimize every dollar you earn and spend.
+          {data?.landingPage?.smarterTools?.description}
         </p>
 
         {/* features cards */}
@@ -57,7 +56,7 @@ const Features = () => {
           className='flex justify-start xl:justify-between gap-8 overflow-x-auto my-10 no-scrollbar scroll-smooth relative'
           onScroll={checkScroll}
         >
-          {features.map((feature, index) => (
+          {data?.landingPage?.smarterTools?.tools?.map((feature, index) => (
             <div
               key={index}
               className='rounded-xl p-5 min-h-[204px] w-[367px] flex flex-col items-center justify-center gap-5 shrink-0 group relative'
@@ -84,8 +83,8 @@ const Features = () => {
               <div className='absolute inset-0 flex flex-col items-center justify-center gap-5 opacity-0 group-hover:opacity-100 transition-opacity duration-700'>
                 <div className='w-10 h-10 text-white rounded-full flex items-center justify-center'>
                   <Image
-                    src={feature.icon}
-                    alt={feature.title}
+                    src={feature.icon || ''}
+                    alt={feature.title || ''}
                     width={48}
                     height={48}
                   />

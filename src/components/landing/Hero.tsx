@@ -2,8 +2,10 @@ import Image from 'next/image';
 import React from 'react';
 import Button from '@/components/shared/Button';
 import Navbar from '@/components/shared/Navbar';
+import { SiteContent } from '../../../sanity.types';
+import Typewriter from '@/components/shared/animated-components/Typewriter';
 
-const Hero = () => {
+const Hero = ({ data }: { data: SiteContent }) => {
   return (
     <section className='bg-darkPurple relative text-white px-5 py-12 md:px-10'>
       <div className='max-w-7xl mx-auto'>
@@ -19,13 +21,17 @@ const Hero = () => {
         <div className='flex items-center flex-col md:flex-row justify-between gap-10 container mx-auto relative'>
           <div className='basis-1/2 '>
             <h1 className='text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3'>
-              Make every dollar count by{' '}
-              <span className='text-lemon'>understanding your cash flow</span>
+              {data?.landingPage?.hero?.prefix}
+              <span className='text-lemon ml-2'>
+                <Typewriter
+                  words={
+                    data?.landingPage?.hero?.highlightedText?.split(',') || []
+                  }
+                  delay={2000}
+                />
+              </span>
             </h1>
-            <p>
-              Connect all your accounts in one place, track spending with
-              precision, and let AI insights guide your journey.
-            </p>
+            <p>{data?.landingPage?.hero?.description}</p>
 
             <div className='flex items-center flex-wrap gap-[18px] mt-10'>
               <Button

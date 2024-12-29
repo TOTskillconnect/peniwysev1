@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import Cta from '@/components/Cta';
-import { faqs } from '@/data/data';
 import Image from 'next/image';
+import { SiteContent } from '../../../sanity.types';
 
-const Faq = () => {
+const Faq = ({ data }: { data: SiteContent }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
@@ -16,10 +16,10 @@ const Faq = () => {
     <section id='faqs' className='pt-12 pb-7 px-5 bg-primary'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-center md:w-[80%] mx-auto text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 text-subdued'>
-          Frequently Asked Questions
+          {data?.landingPage?.faq?.title}
         </h2>
         <div className='md:w-[80%] mx-auto flex flex-col gap-5'>
-          {faqs.map((faq, index) => (
+          {data?.landingPage?.faq?.questions?.map((faq, index) => (
             <div
               key={index}
               className='border border-darkPurple text-subdued rounded-xl p-[18px] cursor-pointer'

@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { yourMoney } from '@/data/data';
 import Image from 'next/image';
+import { SiteContent } from '../../../sanity.types';
 
-const YourMoney = () => {
+const YourMoney = ({ data }: { data: SiteContent }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -44,12 +44,10 @@ const YourMoney = () => {
     <section className='py-12 px-5 bg-[#F3F2FF]'>
       <div className='max-w-7xl mx-auto text-center'>
         <h2 className='md:w-[80%] mx-auto text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 text-subdued'>
-          Your Money, Your life{' '}
+          {data?.landingPage?.yourMoney?.title}
         </h2>
         <p className='text-subdued w-[80%] md:w-1/2 mx-auto'>
-          Our unique approach is built around four key principles inspired by
-          the Self-Determination Theory (SDT) to help you take control of your
-          money in a way that feels right for you.
+          {data?.landingPage?.yourMoney?.description}
         </p>
 
         {/* features cards */}
@@ -58,13 +56,13 @@ const YourMoney = () => {
           className='flex justify-start xl:justify-between gap-8 overflow-x-auto my-10 no-scrollbar scroll-smooth relative'
           onScroll={checkScroll}
         >
-          {yourMoney.map((feature, index) => (
+          {data?.landingPage?.yourMoney?.options?.map((feature, index) => (
             <div
               key={index}
               className='rounded-xl p-5 min-h-[204px] w-[367px] flex flex-col items-center justify-center gap-5 shrink-0 group relative'
               style={{
-                backgroundColor: `${feature.color}08`,
-                borderBottom: `3px solid ${feature.color}`,
+                backgroundColor: `#AB2DB508`,
+                borderBottom: `3px solid #AB2DB5`,
                 transition: 'border-color 0.5s ease',
               }}
             >
@@ -72,7 +70,7 @@ const YourMoney = () => {
               <div className='absolute inset-0 flex flex-col items-center justify-center gap-5 transition-opacity duration-700 group-hover:opacity-0'>
                 <div
                   className='w-10 h-10 text-white rounded-full flex items-center justify-center'
-                  style={{ backgroundColor: feature.color }}
+                  style={{ backgroundColor: '#AB2DB5' }}
                 >
                   <p>{index + 1}</p>
                 </div>
@@ -85,8 +83,8 @@ const YourMoney = () => {
               <div className='absolute inset-0 flex flex-col items-center justify-center gap-5 opacity-0 group-hover:opacity-100 transition-opacity duration-700'>
                 <div className='w-10 h-10 text-white rounded-full flex items-center justify-center'>
                   <Image
-                    src={feature.icon}
-                    alt={feature.title}
+                    src={feature.icon || '/feature2-1.svg'}
+                    alt={feature.title || 'Feature 1'}
                     width={48}
                     height={48}
                   />
@@ -97,7 +95,7 @@ const YourMoney = () => {
               </div>
               <style jsx>{`
                 .group:hover {
-                  border: 3px solid ${feature.color} !important;
+                  border: 3px solid #ab2db5 !important;
                 }
               `}</style>
             </div>
