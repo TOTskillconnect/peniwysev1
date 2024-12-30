@@ -28,6 +28,11 @@ const portableTextComponents: Partial<PortableTextReactComponents> = {
         {children}
       </h3>
     ),
+    h4: ({ children }) => (
+      <h4 className='text-xl md:text-2xl font-semibold mt-4 mb-2'>
+        {children}
+      </h4>
+    ),
   },
   marks: {
     link: ({ children, value }) => {
