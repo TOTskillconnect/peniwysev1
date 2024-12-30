@@ -73,16 +73,16 @@ const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
             <Link href='/' onClick={() => setIsOpen(false)}>
               Home
             </Link>
-            <Link href='/' onClick={() => setIsOpen(false)}>
+            <Link href='/#features' onClick={() => setIsOpen(false)}>
               Features
             </Link>
-            <Link href='/' onClick={() => setIsOpen(false)}>
+            <Link href='/#how-it-works' onClick={() => setIsOpen(false)}>
               How it Works
             </Link>
-            <Link href='/' onClick={() => setIsOpen(false)}>
+            <Link href='/blogs' onClick={() => setIsOpen(false)}>
               Blogs
             </Link>
-            <Link href='/' onClick={() => setIsOpen(false)}>
+            <Link href='/#faqs' onClick={() => setIsOpen(false)}>
               FAQs
             </Link>
           </div>
