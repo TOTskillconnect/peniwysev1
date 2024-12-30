@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client';
 
 import Image from 'next/image';
@@ -5,9 +6,12 @@ import React, { useRef } from 'react';
 import Button from '@/components/shared/Button';
 import ScrollableContainer from '../shared/ScrollableContainer';
 import { SiteContent } from '../../../sanity.types';
+import Link from 'next/link';
 
 const WhatToAchieve = ({ data }: { data: SiteContent }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  console.log(data?.landingPage?.whatToAchieve?.options);
 
   return (
     <section className='px-5 pt-10 pb-7 text-white text-center bg-[#120140] relative overflow-hidden'>
@@ -54,26 +58,30 @@ const WhatToAchieve = ({ data }: { data: SiteContent }) => {
           <div className='flex flex-row gap-4 items-stretch'>
             {data?.landingPage?.whatToAchieve?.options?.map(
               (achievement, index) => (
-                <div
+                <Link
+                  // @ts-expect-error
+                  href={achievement?.link ? `/blogs/${achievement?.link}` : '#'}
                   key={index}
                   className={`border-b-[3px] p-7 rounded-xl bg-white bg-opacity-[16%] border-b-lemon inline-block flex-1`}
                 >
-                  <div className='flex flex-col items-center justify-center flex-1 w-[350px] '>
-                    <Image
-                      className='mb-5'
-                      src={achievement.icon || ''}
-                      alt={achievement.title || ''}
-                      width={50}
-                      height={50}
-                    />
-                    <h3 className='text-2xl md:text-3xl font-extrabold mb-[6px] w-[80%]'>
-                      {achievement.title}
-                    </h3>
-                    <p className='underline font-abeezee w-[80%]'>
-                      {achievement.subtitle}
-                    </p>
+                  <div>
+                    <div className='flex flex-col items-center justify-center flex-1 w-[350px] '>
+                      <Image
+                        className='mb-5'
+                        src={achievement.icon || ''}
+                        alt={achievement.title || ''}
+                        width={50}
+                        height={50}
+                      />
+                      <h3 className='text-2xl md:text-3xl font-extrabold mb-[6px] w-[80%]'>
+                        {achievement.title}
+                      </h3>
+                      <p className='underline font-abeezee w-[80%]'>
+                        {achievement.subtitle}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               )
             )}
           </div>

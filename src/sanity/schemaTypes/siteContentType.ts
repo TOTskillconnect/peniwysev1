@@ -168,6 +168,11 @@ export const siteContentType = defineType({
                         ],
                       },
                     }),
+                    defineField({
+                      name: 'link',
+                      type: 'reference',
+                      to: { type: 'post', options: { disableNew: true } },
+                    }),
                   ],
                 }),
               ],

@@ -10,7 +10,20 @@ import { defineQuery } from 'next-sanity';
 import { sanityFetch } from '@/sanity/lib/live';
 import { SiteContent } from '../../sanity.types';
 
-const contentQuery = defineQuery(`*[_type == "siteContent"]`);
+const contentQuery = defineQuery(`*[_type == "siteContent"] {
+   ...,
+  landingPage {
+    ...,
+    whatToAchieve {
+      ...,
+      options[] {
+        ...,
+        "link": link->slug.current
+        
+      }
+    }
+  }
+}`);
 
 export default async function Home() {
   const { data } = await sanityFetch({
