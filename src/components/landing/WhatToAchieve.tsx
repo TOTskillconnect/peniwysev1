@@ -11,8 +11,6 @@ import Link from 'next/link';
 const WhatToAchieve = ({ data }: { data: SiteContent }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  console.log(data?.landingPage?.whatToAchieve?.options);
-
   return (
     <section className='px-5 pt-10 pb-7 text-white text-center bg-[#120140] relative overflow-hidden'>
       <Image

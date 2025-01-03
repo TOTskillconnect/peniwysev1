@@ -3,6 +3,7 @@ import { Bricolage_Grotesque } from 'next/font/google';
 import './globals.css';
 import { NextLoader } from '@/components/shared/loaders/NextLoader';
 import AppProviders from '@/components/shared/providers/AppProviders';
+import { SanityLive } from '@/sanity/lib/live';
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={`${bricolage.className} antialiased`}>
         <NextLoader />
         <AppProviders>{children}</AppProviders>
+        <SanityLive />
       </body>
     </html>
   );

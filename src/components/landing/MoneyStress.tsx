@@ -1,10 +1,15 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Button from '@/components/shared/Button';
 import Image from 'next/image';
 import { SiteContent } from '../../../sanity.types';
 import CustomPortableText from '../shared/CustomPortableText';
+import SubmitLeadForm from './SubmitLeadForm';
 
 const MoneyStress = ({ data }: { data: SiteContent }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className='bg-primary text-darkPurple px-5 py-12 md:px-10'>
       <div className='max-w-7xl mx-auto'>
@@ -36,6 +41,7 @@ const MoneyStress = ({ data }: { data: SiteContent }) => {
                 text='Get Started'
                 arrowType='light'
                 className='bg-darkPurple text-white'
+                onClick={() => setIsOpen(true)}
               />
               <Button
                 text='Join Community'
@@ -46,6 +52,8 @@ const MoneyStress = ({ data }: { data: SiteContent }) => {
           </div>
         </div>
       </div>
+
+      <SubmitLeadForm isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </section>
   );
 };

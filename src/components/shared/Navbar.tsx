@@ -4,9 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Button from '@/components/shared/Button';
+import SubmitLeadForm from '../landing/SubmitLeadForm';
 
 const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenLeadForm, setIsOpenLeadForm] = useState(false);
 
   return (
     <nav
@@ -99,6 +101,7 @@ const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
         <Button
           text='Sign Up'
           className={`${darkMode ? 'bg-lemon text-darkPurple' : 'bg-darkPurple text-white'}`}
+          onClick={() => setIsOpenLeadForm(true)}
         />
         {/* Mobile Menu Button */}
         <button
@@ -112,6 +115,11 @@ const Navbar = ({ darkMode }: { darkMode?: boolean }) => {
           )}
         </button>
       </div>
+
+      <SubmitLeadForm
+        isOpen={isOpenLeadForm}
+        onClose={() => setIsOpenLeadForm(false)}
+      />
     </nav>
   );
 };
